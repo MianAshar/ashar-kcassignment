@@ -8,9 +8,8 @@ my product thinking, how I work with you (from the transcript), and accuracy
 of the docs against what was built.
 
 ## Status of this file
-v0: constraints only. The calculator type, target users and scope are NOT
-decided yet. We will decide them through discovery in this project, then
-update the "Product decisions" section below.
+v1: product decisions confirmed. Discovery complete; all three docs written
+and committed. Next step: build story by story from docs/user-stories.md.
 
 ## Hard constraints (from the brief)
 - Runs in current Chrome, Edge, Firefox and Safari.
@@ -119,9 +118,15 @@ to the docs._
     Percentage tip rounding: the computed tip amount is rounded to the
     nearest whole rupee (halves round up) before being added to the base.
     Example: Rs. 1,235 at 10% → tip Rs. 124 → total Rs. 1,359.
-  - Error handling: zero participants on an expense; zero or negative
-    amount; duplicate or empty participant names; no expenses entered when
-    settlement is requested.
+  - Error handling (full list — each has exact messages in user-stories.md):
+    zero participants on an expense; zero or negative expense amount;
+    expense amount that is not a whole number of rupees; expense amount
+    above Rs. 10,000,000; negative tip (flat or percentage); percentage tip
+    above 100%; flat tip that is not a whole number of rupees; total
+    including tip above Rs. 10,000,000; duplicate or empty participant
+    names; no expenses entered when settlement is requested; corrupted
+    localStorage data on load (show message, start empty — do not crash
+    or silently discard).
 
 - **Out of scope (and why):**
   - Custom-weight splits within a single expense: multiplies UI and

@@ -12,9 +12,11 @@ and delete expenses, each with a description, a total amount in whole rupees,
 a designated payer (who does not have to share the expense), and the subset of
 participants splitting it; attach an optional tip to any expense as a
 percentage or a flat rupee amount; view a settlement summary showing the
-transfers needed to clear all balances; and start a new trip, clearing all
-saved data after an explicit confirmation. Their data is saved in the browser
-and survives tab closure and browser restarts on the same device.
+transfers needed to clear all balances; view a per-person breakdown showing
+each participant's expenses, their share of each, what they personally paid,
+and their resulting net balance; and start a new trip, clearing all saved data
+after an explicit confirmation. Their data is saved in the browser and survives
+tab closure and browser restarts on the same device.
 
 They must never: see a settlement where the listed transfers do not account for
 every rupee of every net balance; see shares on an expense that do not sum to
@@ -23,7 +25,7 @@ confirmation step; remove a participant who is named on one or more expenses —
 the app blocks the removal and tells the user which expenses must be updated
 first; submit an expense with no participants sharing it; enter a zero or
 negative expense amount; add a participant with an empty or duplicate name;
-enter an amount that is not a whole number of rupees (e.g. 99.50 is rejected);
+enter any monetary value — expense amount or tip — that is not a whole number of rupees (e.g. Rs. 99.50 is rejected);
 enter a single expense amount above Rs. 10,000,000 (1 crore) — this cap sits
 well above any realistic group expense and keeps all arithmetic within
 JavaScript's safe integer range, preventing scientific notation or silent
