@@ -304,7 +304,7 @@ time budget.
    it (e.g. add custom-weight splits, drop one role), or challenge any of the
   segment conclusions?
 
-✻ Baked for 1m 33s
+✻ Crunched for 1m 33s
 
 ❯ Ok good analysis. I agree with the overall direction i.e Trip treasurer as    
 the primary role, equal split per expense, no accounts or backend but there are 
@@ -760,7 +760,7 @@ Make these updates then save it to docs/app-roles.md
 
   Ready for your review, then we move to docs/jobs-to-be-done.md.
 
-✻ Churned for 35s
+✻ Brewed for 35s
 
 ❯ git add . && git commit -m "Docs: app roles"                                  
 
@@ -948,3 +948,1082 @@ Make these changes then save to docs/jobs-to-be-done.md.
       create mode 100644 docs/jobs-to-be-done.md
 
 ⏺ Done. Ready for docs/user-stories.md when you are.
+
+❯ /export                                                                       
+  ⎿  Conversation exported to: /Users/macbook/Projects/ashar-kcassignment/sessio
+     n-01-discovery-and-docs.txt
+
+
+❯ Ok jobs are done. Step 2 continued. Now we will work on stories to be written 
+ in docs/user-stories. We will do this in 2 phases.                             
+                                                                                
+Phase 1: propose the story list only. No acceptance criteria yet.               
+                                                                                
+For each story give: ID, a one-line title, the job it serves(J-n) and one       
+sentence on why its needed.                                                     
+Rules:                                                                          
+- Every story must serve at least one job. If a capability in out scope doesnt  
+serve a job, flag it rather than inventing a job for it                         
+- Every job must be served by at least one story                                
+- Only capabilites in CLAUDE.md's scope. if you think something is missing from 
+ scope, flag it separately don't add it.                                        
+- keep stories small enough that each one can be built and verified on its own  
+                                                                                
+End it with a tracability table. ROws are jobs, columns are the stories that    
+serve them so i can see the coverage at a glance. Wait for me to review.        
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Here is the proposed story list:
+
+  ID: S-1
+  Title: Add a participant
+  Job(s): J-1
+  Why it's needed: Participants must exist before any expense can be recorded
+  ────────────────────────────────────────
+  ID: S-2
+  Title: Rename a participant
+  Job(s): J-1
+  Why it's needed: Typos or name changes must be correctable without disturbing
+    existing expense data
+  ────────────────────────────────────────
+  ID: S-3
+  Title: Remove a participant
+  Job(s): J-1
+  Why it's needed: Mistaken additions must be removable; blocked with a
+    named-expense explanation if the participant is on any expense
+  ────────────────────────────────────────
+  ID: S-4
+  Title: Add an expense
+  Job(s): J-1, J-2
+  Why it's needed: Core record — description, amount, payer, and which
+    participants share it; variable participant selection is the mechanism that
+    delivers per-leg fairness
+  ────────────────────────────────────────
+  ID: S-5
+  Title: Add a tip to an expense
+  Job(s): J-1
+  Why it's needed: Tips are part of the actual amount paid and must be included
+    in the split before shares are calculated
+  ────────────────────────────────────────
+  ID: S-6
+  Title: Edit an expense
+  Job(s): J-1, J-2
+  Why it's needed: Amounts, payers or participant lists may need correction
+  after
+    initial entry
+  ────────────────────────────────────────
+  ID: S-7
+  Title: Delete an expense
+  Job(s): J-1
+  Why it's needed: Mistaken entries must be fully removable
+  ────────────────────────────────────────
+  ID: S-8
+  Title: Persist trip data in the browser
+  Job(s): J-1
+  Why it's needed: Expenses entered across multiple days must survive tab
+  closure
+    and browser restart on the same device
+  ────────────────────────────────────────
+  ID: S-9
+  Title: Start a new trip
+  Job(s): J-1
+  Why it's needed: After settlement the treasurer needs a clean slate; requires
+    explicit confirmation to prevent accidental data loss
+  ────────────────────────────────────────
+  ID: S-10
+  Title: View the settlement summary
+  Job(s): J-3
+  Why it's needed: Produces the transfer instructions the group acts on to clear
+
+    all debts
+  ────────────────────────────────────────
+  ID: S-11
+  Title: View the per-person breakdown
+  Job(s): J-2, J-4
+  Why it's needed: Shows each participant's expenses, shares, payments and net
+    balance so any member can verify their own number without argument
+
+  Traceability table:
+
+  ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬──────┬──────┐
+  │     │ S-1 │ S-2 │ S-3 │ S-4 │ S-5 │ S-6 │ S-7 │ S-8 │ S-9 │ S-10 │ S-11 │
+  ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼──────┼──────┤
+  │ J-1 │ ✅  │ ✅  │ ✅  │ ✅  │ ✅  │ ✅  │ ✅  │ ✅  │ ✅  │      │      │
+  ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼──────┼──────┤
+  │ J-2 │     │     │     │ ✅  │     │ ✅  │     │     │     │      │  ✅  │
+  ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼──────┼──────┤
+  │ J-3 │     │     │     │     │     │     │     │     │     │  ✅  │      │
+  ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼──────┼──────┤
+  │ J-4 │     │     │     │     │     │     │     │     │     │      │  ✅  │
+  └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴──────┴──────┘
+
+  Notes:
+  - Rounding (payer absorbs remainder) is not a separate story — it is an
+  acceptance criterion on S-4, S-5, S-10, and S-11.
+  - All error-handling cases from CLAUDE.md (decimal amounts, amount cap, tip
+  bounds, zero participants, duplicate names, no expenses at settlement) are
+  acceptance criteria on the relevant stories above, not stories in their own
+  right.
+  - No scoped capability is unserved and no story was invented without a job.
+
+  Waiting for your review before writing any acceptance criteria.
+
+✻ Sautéed for 57s
+
+❯ Ok the list is fine. Make the following small changes then move on to phase   
+2:                                                                              
+                                                                                
+1. Add S-12: See how each expense's shares were rounded and who absorbed the    
+leftover rupee. Serves J2 and J4. Rounding is the most distinctive logic in the 
+ app so it should be testable in one place not scattered. S4, S5, S10 and S11   
+can reference it rather than repeating the rule.                                
+                                                                                
+2. map S5 to J2 as well as J1 since splitting the tip among the roght people    
+could be a fairness concern.                                                    
+                                                                                
+Make these changes and then let me know. I will give you phase 2.               
+
+⏺ Updated list with both changes:
+
+  ID: S-1
+  Title: Add a participant
+  Job(s): J-1
+  Why it's needed: Participants must exist before any expense can be recorded
+  ────────────────────────────────────────
+  ID: S-2
+  Title: Rename a participant
+  Job(s): J-1
+  Why it's needed: Typos or name changes must be correctable without disturbing
+    existing expense data
+  ────────────────────────────────────────
+  ID: S-3
+  Title: Remove a participant
+  Job(s): J-1
+  Why it's needed: Mistaken additions must be removable; blocked with a
+    named-expense explanation if the participant is on any expense
+  ────────────────────────────────────────
+  ID: S-4
+  Title: Add an expense
+  Job(s): J-1, J-2
+  Why it's needed: Core record — description, amount, payer, and which
+    participants share it; variable participant selection is the mechanism that
+    delivers per-leg fairness
+  ────────────────────────────────────────
+  ID: S-5
+  Title: Add a tip to an expense
+  Job(s): J-1, J-2
+  Why it's needed: Tips are part of the actual amount paid and must be split
+    among the right participants — a tip charged to people who weren't at that
+    meal is a fairness error
+  ────────────────────────────────────────
+  ID: S-6
+  Title: Edit an expense
+  Job(s): J-1, J-2
+  Why it's needed: Amounts, payers or participant lists may need correction
+  after
+    initial entry
+  ────────────────────────────────────────
+  ID: S-7
+  Title: Delete an expense
+  Job(s): J-1
+  Why it's needed: Mistaken entries must be fully removable
+  ────────────────────────────────────────
+  ID: S-8
+  Title: Persist trip data in the browser
+  Job(s): J-1
+  Why it's needed: Expenses entered across multiple days must survive tab
+  closure
+    and browser restart on the same device
+  ────────────────────────────────────────
+  ID: S-9
+  Title: Start a new trip
+  Job(s): J-1
+  Why it's needed: After settlement the treasurer needs a clean slate; requires
+    explicit confirmation to prevent accidental data loss
+  ────────────────────────────────────────
+  ID: S-10
+  Title: View the settlement summary
+  Job(s): J-3
+  Why it's needed: Produces the transfer instructions the group acts on to clear
+
+    all debts
+  ────────────────────────────────────────
+  ID: S-11
+  Title: View the per-person breakdown
+  Job(s): J-2, J-4
+  Why it's needed: Shows each participant's expenses, shares, payments and net
+    balance so any member can verify their own number without argument
+  ────────────────────────────────────────
+  ID: S-12
+  Title: See how each expense's shares were rounded
+  Job(s): J-2, J-4
+  Why it's needed: Rounding is the most distinctive logic in the app; one
+    canonical place to verify who absorbed the leftover rupee — S-4, S-5, S-10
+    and S-11 reference this rule rather than repeat it
+
+  Updated traceability table:
+
+  Column 1: J-1
+  S-1: ✅
+  S-2: ✅
+  S-3: ✅
+  S-4: ✅
+  S-5: ✅
+  S-6: ✅
+  S-7: ✅
+  S-8: ✅
+  S-9: ✅
+  S-10:
+  S-11:
+  S-12:
+  ────────────────────────────────────────
+  Column 1: J-2
+  S-1:
+  S-2:
+  S-3:
+  S-4: ✅
+  S-5: ✅
+  S-6: ✅
+  S-7:
+  S-8:
+  S-9:
+  S-10:
+  S-11: ✅
+  S-12: ✅
+  ────────────────────────────────────────
+  Column 1: J-3
+  S-1:
+  S-2:
+  S-3:
+  S-4:
+  S-5:
+  S-6:
+  S-7:
+  S-8:
+  S-9:
+  S-10: ✅
+  S-11:
+  S-12:
+  ────────────────────────────────────────
+  Column 1: J-4
+  S-1:
+  S-2:
+  S-3:
+  S-4:
+  S-5:
+  S-6:
+  S-7:
+  S-8:
+  S-9:
+  S-10:
+  S-11: ✅
+  S-12: ✅
+
+  Ready for phase 2.
+
+❯ Phase 2: Write the full stories                                               
+                                                                                
+Format form CLAUDE.md: "As a Trip treasurer, I want [capability], so that       
+[benefit]." Each story names the job(s) it serves and has status i.e. Not       
+implemented. We update statuses after testing.                                  
+                                                                                
+Acceptance criteria rules:                                                      
+- Given / When / Then with concrete numbers and exact on-screen messages in     
+quotes. Example: Given an expense of Rs 1,000 paid by Ali and shared by Ali,    
+Sara and Bilal, when I save it, then the shares show Ali Rs 334,Sara Rs 333,    
+Bilal Rs 333.                                                                   
+- Use the test-scenarios skill to find edge cases. For each story, where        
+relevant, cover: the normal case, invalid input, boundary values (0, 1, the     
+upper limit, limit + 1), very large and very small amounts, and what happens    
+when the user carries on after a result or error (fixes the input and saves     
+again, or adds an expense after viewing the settlement).                        
+- Every "They must never" line in docs/app-roles.md must be covered by at least 
+ one criterion. Add a table at the end mapping each one to the criterion that   
+covers it.                                                                      
+- Resolve this explicitly in S-12: if the payer is not one of the people        
+sharing the expense, who absorbs the leftover rupee? Propose a rule and         
+use it consistently.                                                            
+                                                                                
+Show me the draft before saving.                                                
+
+  Read 1 file (ctrl+o to expand)
+⏺ Here is the full draft. All statuses are "Not implemented" — we update after
+  testing.
+
+  ---
+  User Stories
+
+  All stories have status: Not implemented. Statuses are updated after each 
+  story is built and verified.
+
+  ---
+  S-1 — Add a participant
+
+  Serves: J-1 | Status: Not implemented
+
+  As a Trip Treasurer, I want to add a named participant to the trip, so that
+  they can be assigned as payers or included in expense splits.
+
+  - Given an empty roster, when I type "Ali" and confirm, then "Ali" appears in
+  the participant list.
+  - Given "Ali" is already in the roster, when I add "Sara", then both appear in
+   the list.
+  - Given the add-participant form, when I submit an empty name (or a name of
+  only spaces), then the form shows "Name cannot be empty" and no participant is
+   added.
+  - Given "Ali" is in the roster, when I try to add "Ali" (same name,
+  case-insensitive), then the form shows "A participant named Ali already
+  exists" and no duplicate is added.
+  - Given the form shows an error, when I enter a valid unique name and confirm,
+   then the participant is added and the error clears.
+
+  ---
+  S-2 — Rename a participant
+
+  Serves: J-1 | Status: Not implemented
+
+  As a Trip Treasurer, I want to rename a participant, so that I can correct a
+  typo or name change without losing their expense data.
+
+  - Given "Ali" is in the roster, when I rename them to "Ali Khan" and confirm,
+  then "Ali Khan" appears in the list and all expenses that referenced "Ali" now
+   reference "Ali Khan".
+  - Given the rename form, when I submit an empty name, then the form shows
+  "Name cannot be empty" and the name is unchanged.
+  - Given "Ali" and "Sara" are in the roster, when I rename "Ali" to "Sara",
+  then the form shows "A participant named Sara already exists" and the name is
+  unchanged.
+  - Given "Ali" is in the roster, when I rename "Ali" to "Ali" (no change), then
+   the form is accepted without error.
+  - Given the form shows an error, when I enter a valid unique name and confirm,
+   then the rename succeeds and the error clears.
+
+  ---
+  S-3 — Remove a participant
+
+  Serves: J-1 | Status: Not implemented
+
+  As a Trip Treasurer, I want to remove a participant from the trip, so that I
+  can correct mistakes in the group setup.
+
+  - Given "Ali" is in the roster and not named on any expense (neither as payer
+  nor sharer), when I remove "Ali", then "Ali" no longer appears in the
+  participant list.
+  - Given "Ali" is a sharer on "Fuel to Faisalabad", when I try to remove "Ali",
+   then the app shows "Cannot remove Ali: they appear on Fuel to Faisalabad.
+  Update that expense first." and Ali remains in the roster.
+  - Given "Ali" is the payer on "Snacks" but not a sharer on that expense, when
+  I try to remove "Ali", then the app shows "Cannot remove Ali: they appear on
+  Snacks. Update that expense first." and Ali remains.
+  - Given "Ali" appears on both "Fuel" and "Hotel", when I try to remove "Ali",
+  then the message lists both: "Cannot remove Ali: they appear on Fuel and
+  Hotel. Update those expenses first."
+  - Given Ali has been removed from all expenses they were named on, when I
+  remove "Ali", then the removal succeeds.
+
+  ---
+  S-4 — Add an expense
+
+  Serves: J-1, J-2 | Status: Not implemented
+
+  As a Trip Treasurer, I want to add an expense with a description, total
+  amount, payer, and the subset of participants sharing it, so that I can record
+   exactly what was spent, who paid, and which members the cost applies to.
+
+  Normal cases:
+  - Given participants Ali, Sara, Bilal; when I save "Fuel" Rs. 900, paid by
+  Ali, shared by Ali and Sara; then the expense shows description "Fuel", amount
+   Rs. 900, payer Ali, sharers Ali and Sara.
+  - Given participants Ali, Sara, Bilal; when I save "Snacks" Rs. 300, paid by
+  Ali, shared by Sara and Bilal (Ali is payer but not a sharer); then the
+  expense is saved with Ali as payer and Sara and Bilal as the only sharers.
+
+  Invalid input:
+  - Given the form, when I submit with no description, then the form shows
+  "Description cannot be empty" and no expense is saved.
+  - Given the form, when I enter amount 0, then the form shows "Amount must be
+  greater than zero".
+  - Given the form, when I enter a negative amount (e.g. −500), then the form
+  shows "Amount must be greater than zero".
+  - Given the form, when I enter 999.50, then the form shows "Amount must be a
+  whole number of rupees".
+  - Given the form, when I select zero sharers, then the form shows "At least
+  one participant must share this expense".
+  - Given the form, when I submit without selecting a payer, then the form shows
+   "A payer must be selected".
+
+  Boundary values:
+  - Given the form, when I enter 1 (minimum valid amount), then the expense is
+  saved.
+  - Given the form, when I enter Rs. 10,000,000, then the expense is saved.
+  - Given the form, when I enter Rs. 10,000,001, then the form shows "Amount
+  cannot exceed Rs. 10,000,000".
+
+  Large numbers:
+  - Given Rs. 10,000,000 shared equally among 3 participants; when saved; then
+  all shares display as whole-rupee figures and no value is shown in scientific
+  notation.
+
+  Continuation after error:
+  - Given the form shows a validation error, when I correct all fields and
+  resubmit, then the expense is saved and the error clears.
+
+  (How shares are divided into whole rupees: see S-12. S-4 applies that rule; it
+   is not repeated here.)
+
+  ---
+  S-5 — Add a tip to an expense
+
+  Serves: J-1, J-2 | Status: Not implemented
+
+  As a Trip Treasurer, I want to attach a tip to an expense as a whole
+  percentage or a flat rupee amount, so that the full amount actually paid is
+  included in each participant's share.
+
+  Normal cases:
+  - Given "Dinner" Rs. 1,000, tip 10%, shared equally by Ali and Sara; when
+  saved; then total is Rs. 1,100 and each share is Rs. 550.
+  - Given "Dinner" Rs. 1,000, flat tip Rs. 100, shared equally by Ali and Sara;
+  when saved; then total is Rs. 1,100 and each share is Rs. 550.
+  - Given "Fuel" Rs. 800, tip field left blank; when saved; then total is Rs.
+  800 (no tip applied).
+  - Given "Lunch" Rs. 600, tip 10%, shared by Ali and Sara but not Bilal; when
+  saved; then total is Rs. 660, Ali Rs. 330, Sara Rs. 330, and Bilal owes
+  nothing for this expense. (Fairness: tip follows the sharers, not the whole 
+  group.)
+
+  Invalid input:
+  - Given the form, when I enter a flat tip of −50, then the form shows "Tip
+  cannot be negative".
+  - Given the form, when I enter −10%, then the form shows "Tip cannot be
+  negative".
+  - Given the form, when I enter 101%, then the form shows "Tip percentage
+  cannot exceed 100%".
+  - Given the form, when I enter a flat tip of 99.50, then the form shows "Tip
+  must be a whole number of rupees".
+
+  Boundary values:
+  - Given Rs. 500, tip exactly 100%; when saved; total is Rs. 1,000 and the
+  expense is accepted.
+  - Given Rs. 500, tip 0%; when saved; total is Rs. 500.
+
+  Tip causes total to exceed cap:
+  - Given base Rs. 9,500,000 and flat tip Rs. 600,000 (total Rs. 10,100,000);
+  then the form shows "Total including tip cannot exceed Rs. 10,000,000".
+  - Given base Rs. 9,500,000 and flat tip Rs. 500,000 (total Rs. 10,000,000);
+  then the expense is saved.
+
+  (Rounding when the tipped total is not evenly divisible: see S-12.)
+
+  ---
+  S-6 — Edit an expense
+
+  Serves: J-1, J-2 | Status: Not implemented
+
+  As a Trip Treasurer, I want to edit a saved expense, so that I can correct
+  amounts, payers or participant lists after initial entry.
+
+  - Given expense "Fuel" Rs. 600; when I change the amount to Rs. 700 and save;
+  then the expense shows Rs. 700.
+  - Given expense "Hotel" shared by Ali and Sara; when I change the sharers to
+  Ali, Sara, and Bilal; then the expense shows three sharers.
+  - Given expense "Fuel" with payer Ali; when I change the payer to Sara; then
+  the expense shows Sara as payer.
+  - Given the edit form; when I submit invalid input (zero amount, decimal,
+  above cap, no sharers, invalid tip); then the same error messages as in S-4
+  and S-5 apply and the original expense data is preserved.
+  - Given the settlement summary is displayed; when I save an edit; then the
+  settlement recalculates automatically.
+
+  ---
+  S-7 — Delete an expense
+
+  Serves: J-1 | Status: Not implemented
+
+  As a Trip Treasurer, I want to delete an expense, so that I can remove entries
+   added by mistake.
+
+  - Given expense "Snacks" Rs. 200; when I choose to delete it and confirm; then
+   "Snacks" no longer appears in the expense list.
+  - Given I tap delete on an expense; then the app prompts for confirmation
+  before removing it — a single accidental tap does not delete the expense.
+  - Given I tap delete and then cancel at the confirmation prompt; then the
+  expense remains unchanged.
+  - Given the settlement summary is displayed; when I delete an expense and
+  confirm; then the settlement recalculates automatically.
+
+  ---
+  S-8 — Persist trip data in the browser
+
+  Serves: J-1 | Status: Not implemented
+
+  As a Trip Treasurer, I want the trip data to save automatically in my browser,
+   so that I can close the tab or restart the browser at any point during a
+  multi-day trip without losing any entered data.
+
+  - Given I have added participants Ali, Sara and expense "Fuel" Rs. 600; when I
+   close the tab and reopen the app in the same browser on the same device; then
+   Ali, Sara and "Fuel" Rs. 600 are still present.
+  - Given I have entered trip data; when I restart the browser and reopen the
+  app; then all participants and expenses are restored exactly as entered.
+  - Given I add or edit an expense; then the change is saved immediately — no
+  manual "save trip" action is required.
+  - Given localStorage data is absent or unreadable on load (first visit, or
+  cleared storage); then the app starts with an empty trip and displays no error
+   or stale data from a previous session.
+
+  ---
+  S-9 — Start a new trip
+
+  Serves: J-1 | Status: Not implemented
+
+  As a Trip Treasurer, I want to clear all current trip data and start fresh, so
+   that I can use the app for a new trip without previous data interfering.
+
+  - Given the trip has participants and expenses; when I choose "Start new trip"
+   and confirm; then the participant list and expense list are both empty and
+  localStorage is cleared.
+  - Given I choose "Start new trip"; when I cancel at the confirmation prompt;
+  then all participants and expenses remain intact.
+  - Given the trip is already empty; when I choose "Start new trip" and confirm;
+   then the app remains on an empty state with no error.
+
+  ---
+  S-10 — View the settlement summary
+
+  Serves: J-3 | Status: Not implemented
+
+  As a Trip Treasurer, I want to see a labelled list of transfers that clears
+  all balances, so that the group knows exactly who pays whom and the trip is
+  fully settled.
+
+  Normal cases:
+  - Given Ali paid Rs. 600 for "Fuel" shared equally by Ali and Sara (each Rs.
+  300); then the settlement shows "Sara pays Ali Rs. 300".
+  - Given the Faisalabad scenario:
+    - "Fuel to Faisalabad" Rs. 1,500, paid by Ali, shared by Ali and Usman (Rs.
+  750 each, no rounding)
+    - "Fuel onwards" Rs. 2,000, paid by Usman, shared by Ali, Usman, Sara, Bilal
+   (Rs. 500 each, no rounding)
+    - "Hotel" Rs. 3,001, paid by Sara, shared by Ali, Usman, Sara, Bilal (Ali
+  Rs. 750, Usman Rs. 750, Bilal Rs. 750, Sara Rs. 751 — Sara absorbs Re. 1 per
+  S-12)
+
+  Net balances: Ali −Rs. 500, Usman Rs. 0, Sara +Rs. 1,750, Bilal −Rs. 1,250.
+
+  Then the settlement shows: "Bilal pays Sara Rs. 1,250" and "Ali pays Sara Rs.
+  500".
+  - Given all net balances are zero; then the settlement shows "All balances are
+   settled — no transfers needed."
+  - Given only one participant exists; then the settlement shows "All balances
+  are settled — no transfers needed."
+
+  Empty state:
+  - Given no expenses have been added; when I view the settlement; then the app
+  shows "No expenses have been added yet."
+
+  Algorithm label:
+  - The settlement section is headed "Simplified settlement" (not "Minimum
+  transfers") to reflect that the greedy algorithm is not guaranteed to be the
+  mathematical minimum.
+
+  Mathematical invariant (verified by automated tests, not a UI criterion):
+  - Given any set of valid expenses; when the settlement is computed; then
+  applying all listed transfers to participants' net balances brings every
+  balance to exactly Rs. 0.
+
+  Continuation:
+  - Given the settlement is displayed; when I add, edit or delete an expense;
+  then the settlement recalculates automatically.
+
+  ---
+  S-11 — View the per-person breakdown
+
+  Serves: J-2, J-4 | Status: Not implemented
+
+  As a Trip Treasurer, I want to see a breakdown for each participant showing
+  the expenses they shared, their share of each, what they personally paid, and
+  their net balance, so that any group member can verify their own figure
+  without argument.
+
+  Normal cases:
+  - Given Ali paid Rs. 600 for "Fuel" (shared Ali, Sara — each Rs. 300), and
+  Sara paid Rs. 900 for "Hotel" (shared Ali, Sara, Bilal — each Rs. 300); Ali's
+  breakdown shows:
+    - "Fuel": share Rs. 300, paid Rs. 600 → net from this expense: +Rs. 300
+    - "Hotel": share Rs. 300, paid Rs. 0 → net from this expense: −Rs. 300
+    - Summary: total paid Rs. 600, total owed Rs. 600, net balance Rs. 0
+  - Given Bilal was not on "Fuel"; then "Fuel" does not appear in Bilal's
+  breakdown.
+  - Given Ali paid Rs. 300 for "Snacks" shared by Sara and Bilal only (Ali is
+  payer but not a sharer); Ali's breakdown shows "Snacks": paid Rs. 300, share
+  Rs. 0, net from this expense +Rs. 300.
+
+  Consistency with settlement:
+  - Given both the per-person breakdown and the settlement summary are
+  displayed; then each participant's net balance in the breakdown matches
+  exactly the net balance used in the settlement calculation.
+
+  Zero balance:
+  - Given a participant's total paid equals their total owed; then their
+  breakdown shows net balance Rs. 0 and they do not appear in the settlement
+  transfers.
+
+  (Share values in the breakdown are the same rounded whole-rupee figures 
+  defined in S-12.)
+
+  ---
+  S-12 — See how each expense's shares were rounded
+
+  Serves: J-2, J-4 | Status: Not implemented
+
+  As a Trip Treasurer, I want to see, for each expense, how the total was
+  divided into whole-rupee shares and who absorbed the leftover, so that any
+  participant can confirm the rounding was consistent and fair.
+
+  Canonical rounding rule (referenced by S-4, S-5, S-10, S-11 — defined once 
+  here):
+
+  For an expense with total T (base + tip), payer P, and n sharers:
+  1. Every sharer other than P receives ⌊T ÷ n⌋ rupees.
+  2. P's share = T − (n − 1) × ⌊T ÷ n⌋. P absorbs any leftover.
+  3. If P is not one of the n sharers, every sharer still receives ⌊T ÷ n⌋. P is
+   owed T − n × ⌊T ÷ n⌋ less than they paid. P still absorbs the leftover.
+
+  Invariant: sum of all sharers' shares + remainder absorbed by payer = T.
+
+  Proposed rule for payer-not-sharing case: the payer always absorbs the
+  leftover regardless of whether they share the expense. Rationale: the payer
+  controls the transaction and can verify the rounding directly; the rule is the
+   same in all cases and requires no special handling.
+
+  Acceptance criteria:
+
+  Payer is a sharer:
+  - Given Rs. 1,000, paid by Ali, shared by Ali, Sara, Bilal: Sara Rs. 333,
+  Bilal Rs. 333, Ali Rs. 334. The display shows "Ali absorbed Re. 1 rounding
+  difference."
+  - Given Rs. 900, paid by Ali, shared by Ali, Sara, Bilal: each Rs. 300, no
+  remainder. The display shows "No rounding needed."
+  - Given Rs. 1,001, paid by Ali, shared by Ali, Sara, Bilal: Sara Rs. 333,
+  Bilal Rs. 333, Ali Rs. 335 (absorbs Rs. 2). The display shows "Ali absorbed
+  Rs. 2 rounding difference."
+
+  Payer is not a sharer:
+  - Given Rs. 1,000, paid by Ali, shared by Sara, Bilal, Kamran (Ali is payer
+  only): each of Sara, Bilal, Kamran pays Rs. 333; Ali is owed Rs. 999 instead
+  of Rs. 1,000. The display shows "Ali (payer) absorbed Re. 1 rounding
+  difference."
+  - Given Rs. 1,000, paid by Ali, shared by Sara and Bilal only (2 sharers):
+  each pays Rs. 500, no remainder. No rounding note shown.
+
+  Very small amounts:
+  - Given Rs. 2, paid by Ali, shared by Ali, Sara, Bilal: ⌊2 ÷ 3⌋ = 0; Sara Rs.
+  0, Bilal Rs. 0, Ali Rs. 2 (absorbs Rs. 2). The display shows "Ali absorbed Rs.
+   2 rounding difference." Participants with a Rs. 0 share still appear in the
+  breakdown.
+
+  With tip:
+  - Given Rs. 1,000 + 10% tip = Rs. 1,100 total, paid by Ali (payer and sharer),
+   shared by Ali, Sara, Bilal: Sara Rs. 366, Bilal Rs. 366, Ali Rs. 368 (absorbs
+   Rs. 2). The display shows "Ali absorbed Rs. 2 rounding difference."
+
+  Consistency:
+  - The shares shown in S-12 are identical to those used in S-11 (per-person
+  breakdown) and S-10 (settlement calculation). There is exactly one source of
+  truth for rounding.
+
+  ---
+  "They must never" coverage
+
+  ┌──────────────────────────────────┬──────────────────────────────────────┐
+  │   Constraint from app-roles.md   │              Covered by              │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ See a settlement where transfers │ S-10: mathematical invariant         │
+  │  do not account for every rupee  │ criterion                            │
+  │ of every net balance             │                                      │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ See shares on an expense that do │ S-12: canonical invariant (sharers'  │
+  │  not sum to the expense total    │ shares + absorbed remainder = T)     │
+  │ including tip                    │                                      │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ Lose entered data without an     │ S-7: delete confirmation; S-9:       │
+  │ explicit confirmation step       │ new-trip confirmation                │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ Remove a participant who is      │ S-3: blocked-as-sharer,              │
+  │ named on one or more expenses —  │ blocked-as-payer, multi-expense      │
+  │ app blocks and names the         │ message                              │
+  │ expenses                         │                                      │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ Submit an expense with no        │ S-4: "At least one participant must  │
+  │ participants sharing it          │ share this expense"                  │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ Enter a zero or negative expense │ S-4: "Amount must be greater than    │
+  │  amount                          │ zero"                                │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ Add a participant with an empty  │ S-1: empty-name and duplicate        │
+  │ or duplicate name                │ criteria; S-2: same on rename        │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ Enter an amount that is not a    │ S-4: "Amount must be a whole number  │
+  │ whole number of rupees           │ of rupees"; S-5: "Tip must be a      │
+  │                                  │ whole number of rupees"              │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ Enter a single expense amount    │ S-4: boundary criteria; S-5:         │
+  │ above Rs. 10,000,000             │ total-including-tip cap              │
+  ├──────────────────────────────────┼──────────────────────────────────────┤
+  │ Enter a negative tip, or a       │ S-5: negative-tip and >100% criteria │
+  │ percentage tip above 100%        │                                      │
+  └──────────────────────────────────┴──────────────────────────────────────┘
+
+  ---
+  That's the full draft. Key decisions to confirm before I save:
+
+  1. S-12 payer-not-sharing rule — payer always absorbs the leftover. Confirm
+  you're happy with this.
+  2. S-7 delete confirmation — I added a confirm step based on the "must never
+  lose data without confirmation" rule. If you want single-tap delete, say so
+  and I'll remove it.
+  3. Percentage tip as whole integers — I've implicitly required this (e.g. 10%
+  not 10.5%) to avoid sub-rupee arithmetic from fractional percentages. If you
+  want fractional percentages allowed (with the resulting tip rounded by the
+  same rule), I'll update S-5.
+
+  Say the word and I'll save to docs/user-stories.md.
+
+✻ Sautéed for 6m 21s
+
+❯ The numbers all check out, nice. Three changes before saving:                 
+                                                                                
+1. Don't use "payer always absorbs". When the payer isn't sharing, the          
+shares sum to 999 not 1000, and you've had to redefine the invariant to         
+make it pass. That breaks the "must never" in app-roles (shares must sum        
+to the total) and J-2 (no one pays for something they weren't part of).         
+New rule: if the payer is a sharer, the payer absorbs the leftover. If the      
+payer isn't a sharer, the leftover rupees go one each to the sharers in         
+the order they're listed. Shares must always sum exactly to the total.          
+Update S-12's examples and the invariant to match.                              
+                                                                                
+2. S-5 has no criterion for percentage tips that produce fractions. Add         
+one: the tip is rounded to the nearest rupee before splitting, halves           
+round up. E.g. Rs 1,235 at 10% gives a tip of Rs 124 and a total of             
+Rs 1,359.                                                                       
+                                                                                
+3. S-8: split first visit (empty trip, no message) from saved data that         
+exists but can't be read. In the second case, show a clear message rather       
+than silently discarding it, otherwise it's data loss without warning.          
+                                                                                
+Keep the delete confirmation, and whole-number percentages are fine.            
+                                                                                
+Then save to docs/user-stories.md and update CLAUDE.md if the rounding          
+rule there differs.                                                             
+
+⏺ Three things to update: S-12 rule and examples, S-5 tip rounding criterion,
+  S-8 split criterion, and CLAUDE.md rounding rule. Let me verify the new
+  rounding math first.
+
+  Rs. 1,000, payer Ali (not sharing), sharers Sara → Bilal → Kamran:
+  ⌊1000÷3⌋ = 333, leftover = 1 → Sara 334, Bilal 333, Kamran 333. Sum = 1,000 ✅
+
+  Rs. 2, payer Ali (not sharing), sharers Sara → Bilal → Kamran:
+  ⌊2÷3⌋ = 0, leftover = 2 → Sara 1, Bilal 1, Kamran 0. Sum = 2 ✅
+
+  Rs. 1,235 at 10% tip:
+  1235 × 0.10 = 123.5 → rounds up to 124. Total = 1,359. ✅
+
+  Numbers check out. Writing both files now.
+
+⏺ Write(docs/user-stories.md)
+  ⎿  Wrote 421 lines to docs/user-stories.md
+      1 # User Stories
+      2 
+      3 *All stories have status: Not implemented. Statuses are updated a
+        fter each
+      4 story is built and verified against its acceptance criteria.*
+      5 
+      6 ---
+      7 
+      8 ## S-1 — Add a participant
+      9 **Serves:** J-1 | **Status:** Not implemented
+     … +411 lines (ctrl+o to expand)
+
+⏺ Now update the rounding rule in CLAUDE.md:
+
+⏺ Update(CLAUDE.md)
+  ⎿  Added 13 lines, removed 7 lines
+      106      computed during settlement; this view makes the result aud
+           itable and
+      107      is what gives the group confidence to accept the numbers w
+           ithout
+      108      argument.
+      109 -  - Rounding: all shares are in whole rupees. Each participant
+          -'s share is                                                   
+      110 -    floored to the nearest whole rupee; the leftover rupees ar
+          -e absorbed                                                    
+      111 -    by the payer (their effective share is the total minus the
+          - sum of                                                       
+      112 -    everyone else's floored shares). Rationale: the payer alre
+          -ady                                                           
+      113 -    controls the transaction; the rule is explainable in one s
+          -entence.                                                      
+      114 -    Equal splits are handled correctly (e.g. 1000 ÷ 3 → others
+          - pay 333                                                      
+      115 -    each, payer's share is 334).                              
+      109 +  - Rounding: all shares are in whole rupees. Two cases:      
+      110 +    (A) Payer is one of the n sharers: every other sharer rece
+          +ives                                                          
+      111 +    ⌊T ÷ n⌋; the payer receives T − (n−1) × ⌊T ÷ n⌋ (absorbs t
+          +he                                                            
+      112 +    leftover). Example: Rs. 1,000 ÷ 3 → others Rs. 333, payer 
+          +Rs. 334.                                                      
+      113 +    (B) Payer is not one of the n sharers: every sharer receiv
+          +es                                                            
+      114 +    ⌊T ÷ n⌋ as a base; the leftover rupees are distributed one
+          + each to                                                      
+      115 +    the first sharers in listed order. Example: Rs. 1,000 paid
+          + by Ali                                                       
+      116 +    (not sharing), shared by Sara → Bilal → Kamran → Sara Rs. 
+          +334,                                                          
+      117 +    Bilal Rs. 333, Kamran Rs. 333. Shares always sum exactly t
+          +o T in                                                        
+      118 +    both cases.                                               
+      119 +    Percentage tip rounding: the computed tip amount is rounde
+          +d to the                                                      
+      120 +    nearest whole rupee (halves round up) before being added t
+          +o the base.                                                   
+      121 +    Example: Rs. 1,235 at 10% → tip Rs. 124 → total Rs. 1,359.
+      122    - Error handling: zero participants on an expense; zero or n
+           egative
+      123      amount; duplicate or empty participant names; no expenses 
+           entered when
+      124      settlement is requested.
+
+⏺ Both files saved. Here's a summary of the three changes made:
+
+  1. S-12 rounding rule — replaced the single "payer absorbs" rule with two
+  cases. Case A (payer shares): unchanged. Case B (payer doesn't share):
+  leftover distributes one rupee each to the first sharers in listed order.
+  Invariant is now clean: shares sum exactly to T in both cases, with no
+  redefinition needed. All examples updated with concrete numbers.
+  2. S-5 tip rounding — added two criteria: Rs. 1,235 at 10% → tip rounds up to
+  Rs. 124 (total Rs. 1,359); Rs. 1,234 at 10% → tip rounds down to Rs. 123
+  (total Rs. 1,357).
+  3. S-8 corrupt data — split into two criteria: first visit starts silently
+  with an empty trip; corrupt data shows "Your saved trip data could not be
+  loaded. Starting a new trip." before clearing, so it's never silent data loss.
+   The "must never" coverage table updated to include S-8 for the data-loss
+  constraint.
+
+  CLAUDE.md rounding section updated to match. Ready to commit whenever you are.
+
+✻ Cogitated for 2m 34s
+
+❯ git add . && git commit -m "Docs: user stories"                               
+
+⏺ Bash(git add . && git commit -m "Docs: user stories")
+  ⎿  [main 472c5f4] Docs: user stories
+      3 files changed, 1384 insertions(+), 7 deletions(-)
+      create mode 100644 docs/user-stories.md
+      create mode 100644 transcripts/session-01-discovery-and-docs.md
+
+⏺ Done. Step 2 is complete — all three docs are written and committed. Ready to
+  move to Step 3: building story by story.
+
+❯ Before I end this session, check that CLAUDE.md and the docs contai every     
+decision we made here. The rounding rule(including the payer not sharing case), 
+ tip rounding, the settlement approach, the participant remocal rule, amount    
+and tip limts, the per person breakdopwn in scope and the corrupted saved data  
+behaviour. List anything that exists only in our conversation and not in a file 
+ then add it. Also confirm the "Product decisions" sectionin CLAUDE.md matches  
+docs/user-stories.md                                                            
+
+  Read 2 files (ctrl+o to expand)
+
+⏺ Let me check the user stories file too for the cross-reference check.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Found four gaps. Let me list them before fixing:
+
+  1. app-roles.md "they can" — per-person breakdown is in CLAUDE.md scope but
+  not in the role's capability list.
+  2. app-roles.md "must never" — "amount" wording doesn't explicitly cover flat
+  tip decimals (e.g. Rs. 99.50 as a tip).
+  3. CLAUDE.md error handling bullet — the list is an early draft and is
+  missing: decimal amounts, Rs. 10,000,000 cap, tip limits, flat-tip decimal,
+  total-including-tip cap, and corrupted localStorage behaviour.
+  4. CLAUDE.md "Status of this file" — still says "v0: constraints only"; the
+  file now contains full product decisions.
+
+  Nothing else exists only in conversation — rounding (both cases), tip
+  rounding, settlement approach, participant removal, amount/tip limits, and
+  per-person breakdown are all in CLAUDE.md and/or user-stories.md. The
+  corrupt-data message is correctly in S-8 only; it belongs there.
+
+  Fixing all four now:
+
+⏺ Update(CLAUDE.md)
+  ⎿  Added 2 lines, removed 3 lines
+       8  of the docs against what was built.
+       9  
+      10  ## Status of this file
+      11 -v0: constraints only. The calculator type, target users and sco
+         -pe are NOT                                                     
+      12 -decided yet. We will decide them through discovery in this proj
+         -ect, then                                                      
+      13 -update the "Product decisions" section below.                  
+      11 +v1: product decisions confirmed. Discovery complete; all three 
+         +docs written                                                   
+      12 +and committed. Next step: build story by story from docs/user-s
+         +tories.md.                                                     
+      13  
+      14  ## Hard constraints (from the brief)
+      15  - Runs in current Chrome, Edge, Firefox and Safari.
+
+⏺ Update(CLAUDE.md)
+  ⎿  Added 9 lines, removed 3 lines
+      118      Percentage tip rounding: the computed tip amount is rounde
+           d to the
+      119      nearest whole rupee (halves round up) before being added t
+           o the base.
+      120      Example: Rs. 1,235 at 10% → tip Rs. 124 → total Rs. 1,359.
+      121 -  - Error handling: zero participants on an expense; zero or n
+          -egative                                                       
+      122 -    amount; duplicate or empty participant names; no expenses 
+          -entered when                                                  
+      123 -    settlement is requested.                                  
+      121 +  - Error handling (full list — each has exact messages in use
+          +r-stories.md):                                                
+      122 +    zero participants on an expense; zero or negative expense 
+          +amount;                                                       
+      123 +    expense amount that is not a whole number of rupees; expen
+          +se amount                                                     
+      124 +    above Rs. 10,000,000; negative tip (flat or percentage); p
+          +ercentage tip                                                 
+      125 +    above 100%; flat tip that is not a whole number of rupees;
+          + total                                                        
+      126 +    including tip above Rs. 10,000,000; duplicate or empty par
+          +ticipant                                                      
+      127 +    names; no expenses entered when settlement is requested; c
+          +orrupted                                                      
+      128 +    localStorage data on load (show message, start empty — do 
+          +not crash                                                     
+      129 +    or silently discard).                                     
+      130  
+      131  - **Out of scope (and why):**
+      132    - Custom-weight splits within a single expense: multiplies U
+           I and
+
+⏺ Now fix app-roles.md — add per-person breakdown to "they can" and clarify the
+  decimal constraint covers tips:
+
+⏺ Update(docs/app-roles.md)
+  ⎿  Added 5 lines, removed 3 lines
+      12  a designated payer (who does not have to share the expense), an
+          d the subset of
+      13  participants splitting it; attach an optional tip to any expens
+          e as a
+      14  percentage or a flat rupee amount; view a settlement summary sh
+          owing the
+      15 -transfers needed to clear all balances; and start a new trip, c
+         -learing all                                                    
+      16 -saved data after an explicit confirmation. Their data is saved 
+         -in the browser                                                 
+      17 -and survives tab closure and browser restarts on the same devic
+         -e.                                                             
+      15 +transfers needed to clear all balances; view a per-person break
+         +down showing                                                   
+      16 +each participant's expenses, their share of each, what they per
+         +sonally paid,                                                  
+      17 +and their resulting net balance; and start a new trip, clearing
+         + all saved data                                                
+      18 +after an explicit confirmation. Their data is saved in the brow
+         +ser and survives                                               
+      19 +tab closure and browser restarts on the same device.           
+      20  
+      21  They must never: see a settlement where the listed transfers do
+           not account for
+      22  every rupee of every net balance; see shares on an expense that
+           do not sum to
+
+⏺ Update(docs/app-roles.md)
+  ⎿  Added 1 line, removed 1 line
+      25  the app blocks the removal and tells the user which expenses mu
+          st be updated
+      26  first; submit an expense with no participants sharing it; enter
+           a zero or
+      27  negative expense amount; add a participant with an empty or dup
+          licate name;
+      28 -enter an amount that is not a whole number of rupees (e.g. 99.5
+         -0 is rejected);                                                
+      28 +enter any monetary value — expense amount or tip — that is not 
+         +a whole number of rupees (e.g. Rs. 99.50 is rejected);         
+      29  enter a single expense amount above Rs. 10,000,000 (1 crore) — 
+          this cap sits
+      30  well above any realistic group expense and keeps all arithmetic
+           within
+      31  JavaScript's safe integer range, preventing scientific notation
+           or silent
+
+⏺ Now confirm CLAUDE.md Product decisions matches user-stories.md. Let me do a
+  quick cross-check of the key items:
+
+  Searched for 2 patterns (ctrl+o to expand)
+
+⏺ Bash(git diff docs/app-roles.md CLAUDE.md)
+  ⎿  diff --git a/CLAUDE.md b/CLAUDE.md
+     index 7a0ce92..c9d0623 100644
+     --- a/CLAUDE.md
+     … +52 lines (ctrl+o to expand)
+
+⏺ All changes verified. Here is the final audit:
+
+  ┌────────────────────────────────────────┬────────────────────────────────┐
+  │                  Item                  │             Status             │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Rounding rule — payer is sharer        │ ✅ CLAUDE.md (Case A), S-12    │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Rounding rule — payer not sharing,     │                                │
+  │ leftover to first sharers in listed    │ ✅ CLAUDE.md (Case B), S-12    │
+  │ order                                  │                                │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Tip rounding — halves round up         │ ✅ CLAUDE.md, S-5              │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Settlement — greedy, ≤ N-1, labelled   │ ✅ CLAUDE.md, S-10             │
+  │ "Simplified settlement"                │                                │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Participant removal — blocked, names   │ ✅ app-roles.md, S-3           │
+  │ the conflicting expenses               │                                │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Amount cap — Rs. 10,000,000, reason    │ ✅ app-roles.md, CLAUDE.md,    │
+  │ stated                                 │ S-4                            │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Tip limits — negative blocked,         │ ✅ app-roles.md, CLAUDE.md,    │
+  │ percentage capped at 100%              │ S-5                            │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Tip total cap — base + tip cannot      │ ✅ CLAUDE.md (now added), S-5  │
+  │ exceed Rs. 10,000,000                  │                                │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Flat tip decimal blocked               │ ✅ app-roles.md (now           │
+  │                                        │ clarified), S-5                │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Per-person breakdown in scope          │ ✅ CLAUDE.md, app-roles.md     │
+  │                                        │ (now added), S-11              │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │ Corrupted localStorage — message,      │ ✅ CLAUDE.md (now added), S-8  │
+  │ start empty, no crash                  │                                │
+  ├────────────────────────────────────────┼────────────────────────────────┤
+  │                                        │ ✅ Both use "Simplified        │
+  │ CLAUDE.md matches user-stories.md      │ settlement"; all error cases   │
+  │                                        │ aligned                        │
+  └────────────────────────────────────────┴────────────────────────────────┘
+
+✻ Cooked for 1m 30s
+❯ git add . && git commit -m "Docs: final consistency check                     
+
+⏺ Bash(git add . && git commit -m "Docs: final consistency check")
+  ⎿  [main de8b743] Docs: final consistency check
+      2 files changed, 17 insertions(+), 10 deletions(-)
+
+⏺ Done. All decisions are now in files. Ready to start Step 3 — building — in
+  the next session.
