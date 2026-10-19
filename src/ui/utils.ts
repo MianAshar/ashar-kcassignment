@@ -18,7 +18,7 @@ export function escHtml(s: string): string {
  * Uses non-breaking space after "Rs." to prevent awkward line breaks.
  */
 export function formatRs(amount: number): string {
-  return `Rs.\u00a0${amount.toLocaleString("en-PK")}`;
+  return `Rs.\u00a0${amount.toLocaleString("en-US")}`;
 }
 
 /**

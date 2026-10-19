@@ -2,13 +2,13 @@
 
 import type { AppState } from "../state.js";
 import { computeExpenseResults } from "../../logic/balances.js";
-import { escHtml, formatRs, formatNet } from "../utils.js";
+import { escHtml, formatRs } from "../utils.js";
 
 /**
  * Implements S-11.
  * For each participant: shows the expenses they shared, their share of each,
- * what they personally paid, the per-expense net, and the overall summary.
- * Hidden when there are no expenses (nothing to show).
+ * what they personally paid, who paid (so they know who they owe), and the
+ * overall balance. Hidden when there are no expenses.
  *
  * Share values here are identical to those used in the settlement (S-10) —
  * both derive from computeExpenseResults, ensuring one source of truth (S-12).
@@ -24,6 +24,9 @@ export function renderBreakdown(state: AppState): string {
       description: string;
       share: number;
       paid: number;
+      // "You" when this participant is the payer, otherwise the payer's name.
+      // Tells the participant who they owe for each expense.
+      paidBy: string;
       net: number;
     }[] = [];
 
@@ -47,7 +50,11 @@ export function renderBreakdown(state: AppState): string {
       totalPaid += paid;
       totalOwed += share;
 
-      expenseRows.push({ description: expense.description, share, paid, net });
+      // Show "You" when participant is the payer so they know they fronted the money.
+      // Show the payer's name otherwise so they know exactly who they owe.
+      const paidBy = isPayer ? "You" : (nameById.get(expense.payerId) ?? expense.payerId);
+
+      expenseRows.push({ description: expense.description, share, paid, paidBy, net });
     }
 
     const netBalance = totalPaid - totalOwed;
@@ -73,7 +80,7 @@ export function renderBreakdown(state: AppState): string {
 
 function renderPersonBreakdown(
   name: string,
-  rows: { description: string; share: number; paid: number; net: number }[],
+  rows: { description: string; share: number; paid: number; paidBy: string; net: number }[],
   totalPaid: number,
   totalOwed: number,
   netBalance: number,
@@ -90,18 +97,30 @@ function renderPersonBreakdown(
   const netClass =
     netBalance > 0 ? "net-positive" : netBalance < 0 ? "net-negative" : "net-zero";
 
+  // Plain +/− amount per row (unchanged semantics, column just renamed to Balance)
   const tableRows = rows.map((r) => {
-    const netSign = r.net >= 0 ? "+" : "\u2212";
-    const netAbs = formatRs(Math.abs(r.net));
+    const balanceSign = r.net >= 0 ? "+" : "\u2212";
+    const balanceAbs = formatRs(Math.abs(r.net));
     return `
       <tr>
         <td>${escHtml(r.description)}</td>
         <td class="num">${formatRs(r.share)}</td>
         <td class="num">${r.paid > 0 ? formatRs(r.paid) : "—"}</td>
-        <td class="num">${netSign}${netAbs}</td>
+        <td>${escHtml(r.paidBy)}</td>
+        <td class="num">${balanceSign}${balanceAbs}</td>
       </tr>
     `;
   }).join("");
+
+  // Plain-language balance label: avoids "Net" jargon.
+  let balanceLabel: string;
+  if (netBalance > 0) {
+    balanceLabel = `Is owed <strong>${formatRs(netBalance)}</strong>`;
+  } else if (netBalance < 0) {
+    balanceLabel = `Owes <strong>${formatRs(-netBalance)}</strong>`;
+  } else {
+    balanceLabel = `<strong>Settled</strong>`;
+  }
 
   return `
     <div class="breakdown-person">
@@ -112,7 +131,8 @@ function renderPersonBreakdown(
             <th>Expense</th>
             <th class="num">Share</th>
             <th class="num">Paid</th>
-            <th class="num">Net</th>
+            <th>Paid by</th>
+            <th class="num">Balance</th>
           </tr>
         </thead>
         <tbody>${tableRows}</tbody>
@@ -120,7 +140,7 @@ function renderPersonBreakdown(
       <div class="breakdown-summary">
         <span>Total paid: <strong>${formatRs(totalPaid)}</strong></span>
         <span>Total owed: <strong>${formatRs(totalOwed)}</strong></span>
-        <span class="${netClass}">Net: ${formatNet(netBalance)}</span>
+        <span class="${netClass}">${balanceLabel}</span>
       </div>
     </div>
   `;

@@ -11,7 +11,7 @@ import { renderBreakdown } from "./sections/breakdown.js";
 import { newId } from "./utils.js";
 import { validateParticipantName, validateDescription, validateAmount, validateSharers, validatePayer, validateTip, validateTotal } from "../logic/validation.js";
 import { computeTotal } from "../logic/tip.js";
-import { saveTrip } from "../logic/storage.js";
+import { saveTrip, clearTrip } from "../logic/storage.js";
 import type { Expense, TipInput, TipMode } from "../logic/types.js";
 
 // ── Render ────────────────────────────────────────────────────────────────
@@ -417,7 +417,8 @@ function handleNewTrip(): void {
     participantInputError: null,
     storageLoadError: false,
   });
-  saveTripData();
+  // Remove the key entirely rather than saving an empty object (S-9).
+  clearTrip(localStorage);
   render();
 }
 

@@ -6,4 +6,8 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
+  test: {
+    // Exclude Playwright E2E specs — they use a different test runner.
+    exclude: ["e2e/**", "node_modules/**"],
+  },
 });

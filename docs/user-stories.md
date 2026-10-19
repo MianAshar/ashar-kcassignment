@@ -5,7 +5,7 @@
 ---
 
 ## S-1 — Add a participant
-**Serves:** J-1 | **Status:** Not implemented
+**Serves:** J-1 | **Status:** Implemented
 
 As a Trip Treasurer, I want to add a named participant to the trip, so that
 they can be assigned as payers or included in expense splits.
@@ -26,7 +26,7 @@ they can be assigned as payers or included in expense splits.
 ---
 
 ## S-2 — Rename a participant
-**Serves:** J-1 | **Status:** Not implemented
+**Serves:** J-1 | **Status:** Implemented
 
 As a Trip Treasurer, I want to rename a participant, so that I can correct a
 typo or name change without losing their expense data.
@@ -50,7 +50,7 @@ typo or name change without losing their expense data.
 ---
 
 ## S-3 — Remove a participant
-**Serves:** J-1 | **Status:** Not implemented
+**Serves:** J-1 | **Status:** Implemented
 
 As a Trip Treasurer, I want to remove a participant from the trip, so that I
 can correct mistakes in the group setup.
@@ -73,7 +73,7 @@ can correct mistakes in the group setup.
 ---
 
 ## S-4 — Add an expense
-**Serves:** J-1, J-2 | **Status:** Not implemented
+**Serves:** J-1, J-2 | **Status:** Implemented
 
 As a Trip Treasurer, I want to add an expense with a description, total
 amount, payer, and the subset of participants sharing it, so that I can record
@@ -123,7 +123,7 @@ it is not repeated here.)*
 ---
 
 ## S-5 — Add a tip to an expense
-**Serves:** J-1, J-2 | **Status:** Not implemented
+**Serves:** J-1, J-2 | **Status:** Implemented
 
 As a Trip Treasurer, I want to attach a tip to an expense as a whole
 percentage or a flat rupee amount, so that the full amount actually paid is
@@ -173,7 +173,7 @@ included in each participant's share.
 ---
 
 ## S-6 — Edit an expense
-**Serves:** J-1, J-2 | **Status:** Not implemented
+**Serves:** J-1, J-2 | **Status:** Implemented
 
 As a Trip Treasurer, I want to edit a saved expense, so that I can correct
 amounts, payers or participant lists after initial entry.
@@ -193,7 +193,7 @@ amounts, payers or participant lists after initial entry.
 ---
 
 ## S-7 — Delete an expense
-**Serves:** J-1 | **Status:** Not implemented
+**Serves:** J-1 | **Status:** Implemented
 
 As a Trip Treasurer, I want to delete an expense, so that I can remove entries
 added by mistake.
@@ -210,7 +210,7 @@ added by mistake.
 ---
 
 ## S-8 — Persist trip data in the browser
-**Serves:** J-1 | **Status:** Not implemented
+**Serves:** J-1 | **Status:** Implemented
 
 As a Trip Treasurer, I want the trip data to save automatically in my browser,
 so that I can close the tab or restart the browser at any point during a
@@ -233,7 +233,7 @@ multi-day trip without losing any entered data.
 ---
 
 ## S-9 — Start a new trip
-**Serves:** J-1 | **Status:** Not implemented
+**Serves:** J-1 | **Status:** Implemented
 
 As a Trip Treasurer, I want to clear all current trip data and start fresh,
 so that I can use the app for a new trip without previous data interfering.
@@ -249,7 +249,7 @@ so that I can use the app for a new trip without previous data interfering.
 ---
 
 ## S-10 — View the settlement summary
-**Serves:** J-3 | **Status:** Not implemented
+**Serves:** J-3 | **Status:** Implemented
 
 As a Trip Treasurer, I want to see a labelled list of transfers that clears
 all balances, so that the group knows exactly who pays whom and the trip is
@@ -298,7 +298,7 @@ fully settled.
 ---
 
 ## S-11 — View the per-person breakdown
-**Serves:** J-2, J-4 | **Status:** Not implemented
+**Serves:** J-2, J-4 | **Status:** Implemented
 
 As a Trip Treasurer, I want to see a breakdown for each participant showing
 the expenses they shared, their share of each, what they personally paid, and
@@ -334,7 +334,7 @@ defined in S-12.)*
 ---
 
 ## S-12 — See how each expense's shares were rounded
-**Serves:** J-2, J-4 | **Status:** Not implemented
+**Serves:** J-2, J-4 | **Status:** Implemented
 
 As a Trip Treasurer, I want to see, for each expense, how the total was
 divided into whole-rupee shares and who absorbed the leftover, so that any
