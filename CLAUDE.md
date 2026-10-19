@@ -100,6 +100,12 @@ to the docs._
     minimum (that problem is computationally hard); the greedy result is
     sufficient for typical group sizes of 3–8 people. The docs and UI
     will describe this honestly as "simplified settlement".
+  - Per-person breakdown: for each participant, a view showing which
+    expenses they shared, their share of each, what they personally paid,
+    and the net balance that results. The underlying data is already
+    computed during settlement; this view makes the result auditable and
+    is what gives the group confidence to accept the numbers without
+    argument.
   - Rounding: all shares are in whole rupees. Each participant's share is
     floored to the nearest whole rupee; the leftover rupees are absorbed
     by the payer (their effective share is the total minus the sum of
