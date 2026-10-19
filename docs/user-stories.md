@@ -1,7 +1,6 @@
 # User Stories
 
-*All stories have status: Not implemented. Statuses are updated after each
-story is built and verified against its acceptance criteria.*
+*Statuses updated after each story is built and verified against its acceptance criteria.*
 
 ---
 
@@ -42,6 +41,9 @@ typo or name change without losing their expense data.
   is unchanged.
 - Given "Ali" is in the roster, when I rename "Ali" to "Ali" (no change),
   then the form is accepted without error.
+- Given "Ali" is in the roster, when I rename "Ali" to "ali" (same name,
+  different case), then the form is accepted without error and the
+  participant's name is updated to "ali".
 - Given the form shows an error, when I enter a valid unique name and confirm,
   then the rename succeeds and the error clears.
 
@@ -361,6 +363,16 @@ round up). The rounded total T is then divided as above.
 
 **Shares always sum exactly to T in both cases.**
 
+### Display placement
+
+Rounding notes appear as a line beneath each expense in the expense list.
+They are **not** repeated in the per-person breakdown (S-11).
+
+### Zero-leftover rule
+
+When leftover = 0 (the total divides evenly among all sharers), **no
+rounding note is shown** — for both Case A and Case B.
+
 ### Acceptance criteria
 
 **Case A — payer is a sharer:**
@@ -368,7 +380,7 @@ round up). The rounded total T is then divided as above.
   Sara Rs. 333, Bilal Rs. 333, Ali Rs. 334 (absorbs Re. 1). Display shows
   "Ali absorbed Re. 1 rounding difference."
 - Given Rs. 900, paid by Ali, shared by Ali → Sara → Bilal: each Rs. 300, no
-  remainder. Display shows "No rounding needed."
+  remainder. No rounding note shown.
 - Given Rs. 1,001, paid by Ali, shared by Ali → Sara → Bilal: Sara Rs. 333,
   Bilal Rs. 333, Ali Rs. 335 (absorbs Rs. 2). Display shows "Ali absorbed
   Rs. 2 rounding difference."

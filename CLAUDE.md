@@ -140,6 +140,18 @@ to the docs._
   - Ongoing household ledger: core job requires persistent cross-session
     tracking across months; a one-trip tool is the wrong shape for it.
 
+## Code standards
+_Apply to every file without exception._
+
+- Code should be self-explanatory first: clear names, small functions, one
+  responsibility per module.
+- Every exported function gets a short doc comment saying what it does,
+  its inputs and outputs, and which story it implements
+  (e.g. `/** Implements S-12. Computes whole-rupee shares … */`).
+- Comment the why, not the what. Explain business rules and non-obvious
+  decisions (e.g. why the payer absorbs the leftover), not obvious lines.
+- Each file starts with a one-line comment on its purpose.
+
 - **Key assumptions (discovery was assumption-based; no real user
   interviews were conducted):**
   - A1: Users enter expenses on the same device and browser throughout
