@@ -106,13 +106,19 @@ to the docs._
     computed during settlement; this view makes the result auditable and
     is what gives the group confidence to accept the numbers without
     argument.
-  - Rounding: all shares are in whole rupees. Each participant's share is
-    floored to the nearest whole rupee; the leftover rupees are absorbed
-    by the payer (their effective share is the total minus the sum of
-    everyone else's floored shares). Rationale: the payer already
-    controls the transaction; the rule is explainable in one sentence.
-    Equal splits are handled correctly (e.g. 1000 ÷ 3 → others pay 333
-    each, payer's share is 334).
+  - Rounding: all shares are in whole rupees. Two cases:
+    (A) Payer is one of the n sharers: every other sharer receives
+    ⌊T ÷ n⌋; the payer receives T − (n−1) × ⌊T ÷ n⌋ (absorbs the
+    leftover). Example: Rs. 1,000 ÷ 3 → others Rs. 333, payer Rs. 334.
+    (B) Payer is not one of the n sharers: every sharer receives
+    ⌊T ÷ n⌋ as a base; the leftover rupees are distributed one each to
+    the first sharers in listed order. Example: Rs. 1,000 paid by Ali
+    (not sharing), shared by Sara → Bilal → Kamran → Sara Rs. 334,
+    Bilal Rs. 333, Kamran Rs. 333. Shares always sum exactly to T in
+    both cases.
+    Percentage tip rounding: the computed tip amount is rounded to the
+    nearest whole rupee (halves round up) before being added to the base.
+    Example: Rs. 1,235 at 10% → tip Rs. 124 → total Rs. 1,359.
   - Error handling: zero participants on an expense; zero or negative
     amount; duplicate or empty participant names; no expenses entered when
     settlement is requested.
