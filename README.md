@@ -178,3 +178,17 @@ All shares are whole rupees. For total T, payer P, n sharers in listed order:
 |---|---|
 | `transcripts/session-01-discovery-and-docs.md` | Discovery session: chose the calculator type, wrote all three product docs |
 | `transcripts/session-02-user-stories-and-implementation.md` | Build session: Wave 1 (logic layer), Wave 2 (UI), E2E tests, QA, and story status updates. Note: this session was auto-compacted by Claude Code due to context length; the complete record including all tool calls is in the `.jsonl` session log at `.claude/projects/…/fa7d1f19-50c5-4caa-8067-074c31491b79.jsonl` |
+
+### PM skills
+
+Product discovery and documentation used the open-source
+[pm-skills](https://github.com/phuryn/pm-skills) plugins for Claude Code.
+The skills provided frameworks for thinking; their outputs were then
+rewritten into the exact formats the brief requires (App Roles, Jobs To
+Be Done, User Stories with Given/When/Then criteria).
+
+| Skill | Plugin | Used for |
+|---|---|---|
+| market-segments | pm-market-research | Comparing user segments and choosing the Trip Treasurer as the target role |
+| test-scenarios | pm-execution | Finding edge cases for the acceptance criteria |
+| job-stories | pm-execution | Framing the jobs to be done |
